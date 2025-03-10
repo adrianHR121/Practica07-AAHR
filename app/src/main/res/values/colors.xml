@@ -8,6 +8,7 @@
     <color name="cardBackground">#1E1E1E</color>
     <color name="cardElevation">#333333</color>
 
+
     <!-- Colores específicos -->
     <color name="fabBackground">#FF4081</color>
 </resources>
