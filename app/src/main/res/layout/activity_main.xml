@@ -4,129 +4,109 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="@color/backgroundDark"
     tools:context=".MainActivity">
 
-    <!-- Agregamos un CardView para el título principal con sombra y bordes redondeados -->
+    <!-- Encabezado: Fondo oscuro con icono y título en color brillante -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardBackgroundColor="@android:color/white"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/cardBackground"
         app:cardCornerRadius="12dp"
-        app:cardElevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
+            <!-- Icono del título -->
             <ImageView
                 android:id="@+id/iconTitle"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@android:drawable/ic_media_play"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView"
-                app:layout_constraintHorizontal_bias="0.9"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_info_details"
+                android:tint="@color/accentColor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:tint="#FF5722" />
+                app:layout_constraintBottom_toBottomOf="parent" />
 
+            <!-- Título -->
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="Práctica 7"
-                android:textColor="#212121"
-                android:textSize="24sp"
+                android:text="Bienvenidos a la Práctica 7"
+                android:textColor="@color/textPrimary"
+                android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/iconTitle"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginStart="16dp" />
 
+            <!-- Icono de configuración -->
             <ImageView
                 android:id="@+id/settingsIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:src="@android:drawable/ic_menu_manage"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:tint="@color/textSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.9"
-                app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="parent"
-                android:tint="#757575" />
+                app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Agregamos un ProgressBar para mostrar mientras se carga el RecyclerView -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Mejoramos el RecyclerView con un CardView para darle mejor apariencia -->
+    <!-- Lista de Películas con borde redondeado y espaciado -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardRecycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@android:color/white"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/cardBackground"
         app:cardCornerRadius="12dp"
-        app:cardElevation="4dp"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toBottomOf="@+id/cardTitle"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardTitle">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/gpelis"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:paddingStart="8dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="8dp" />
+            android:padding="16dp" />
     </androidx.cardview.widget.CardView>
 
-    <!-- Botón flotante para agregar nuevos elementos -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
+    <!-- ProgressBar centrado con un color llamativo -->
+    <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#FF5722"
+        android:visibility="gone"
+        android:indeterminateTint="@color/accentColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón flotante grande y prominente en la parte inferior -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="24dp"
+        android:backgroundTint="@color/accentColor"
         android:src="@android:drawable/ic_input_add"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@android:color/white" />
-
-    <!-- Línea decorativa debajo del título -->
-    <View
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="8dp"
-        android:background="#E0E0E0"
-        app:layout_constraintEnd_toEndOf="@+id/cardTitle"
-        app:layout_constraintStart_toStartOf="@+id/cardTitle"
-        app:layout_constraintTop_toBottomOf="@+id/cardTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

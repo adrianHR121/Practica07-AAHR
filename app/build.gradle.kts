@@ -46,4 +46,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("androidx.constraintlayout:constraintlayout:2.0.4")  // o una versión más reciente
+    implementation ("com.google.android.material:material:1.3.0")  // o la versión más reciente
+
 }
